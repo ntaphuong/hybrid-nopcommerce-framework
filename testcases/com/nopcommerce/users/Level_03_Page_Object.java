@@ -51,7 +51,7 @@ public class Level_03_Page_Object{
         registerPage.enterToConfirmPasswordTextbox("");
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getRegisterSuccesMessage(), "Your registration completed");
+        Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
 
     }
     @Test
