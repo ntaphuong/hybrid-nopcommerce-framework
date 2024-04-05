@@ -67,7 +67,7 @@ public class Level_03_Page_Object{
         // Từ Login Page qua Home page
         homePage = new HomePageObject();
 
-        Assert.assertTrue(homePage.isMyAccountLinlkDisplay());
+        Assert.assertTrue(homePage.isMyAccountLinkDisplay());
 
 
     }
