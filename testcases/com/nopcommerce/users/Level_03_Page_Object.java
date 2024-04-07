@@ -1,5 +1,5 @@
 package com.nopcommerce.users;
-import commons.BasePage;
+import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -14,13 +14,14 @@ import pageObjects.RegisterPageObject;
 import java.time.Duration;
 import java.util.Random;
 
-public class Level_03_Page_Object{
+public class Level_03_Page_Object extends BaseTest {
     // Declare variables
     private WebDriver driver;
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
     private CustomerInfoPageObject customerInfoPage;
+    private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
 
     // pre condition
     @BeforeClass
@@ -29,26 +30,34 @@ public class Level_03_Page_Object{
         driver.get("https://demo.nopcommerce.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         // Mở URL lên, qua HomePage
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
+        firstName = "Phượng";
+        lastName = "Nguyễn";
+        day = "19";
+        month = "January";
+        year = "1989";
+        emailAddress = "phuong"+generateRandomNumber()+"@gmail.com";
+        companyName = "PhuongNTACompany";
+        password = "123456";
     }
     @Test
     public void User_01_Register(){
         //Action 1
         homePage.clickToRegisterLink();
         // Từ Home Page qua Register Page
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
 
         registerPage.clickToMaleRadio();
 
-        registerPage.EnterToFirstNameTexBox("");
-        registerPage.EnterToLastNameTextBox("");
-        registerPage.selectDayDropdown("");
-        registerPage.selectMonthDropdown("");
-        registerPage.selectYearSropdown("");
-        registerPage.enterToEmailTextbox("");
-        registerPage.enterToCompanyTextbox("");
-        registerPage.enterToPasswordTextbox("");
-        registerPage.enterToConfirmPasswordTextbox("");
+        registerPage.EnterToFirstNameTexBox(firstName);
+        registerPage.EnterToLastNameTextBox(lastName);
+        registerPage.selectDayDropdown(day);
+        registerPage.selectMonthDropdown(month);
+        registerPage.selectYearDropdown(year);
+        registerPage.enterToEmailTextbox(emailAddress);
+        registerPage.enterToCompanyTextbox(companyName);
+        registerPage.enterToPasswordTextbox(password);
+        registerPage.enterToConfirmPasswordTextbox(password);
         registerPage.clickToRegisterButton();
 
         Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
@@ -56,16 +65,16 @@ public class Level_03_Page_Object{
     }
     @Test
     public void User_02_Login(){
-        registerPage.clickToLoginButton();
+        registerPage.clickToLoginLink();
         // Từ Register Page qua Login Page
-        loginPage = new LoginPageObject();
+        loginPage = new LoginPageObject(driver);
 
-        loginPage.enterToEmailTextBox("");
-        loginPage.enterToPasswordTextBox("");
+        loginPage.enterToEmailTextBox(emailAddress);
+        loginPage.enterToPasswordTextBox(password);
         loginPage.clickToLoginButton();
 
         // Từ Login Page qua Home page
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
 
         Assert.assertTrue(homePage.isMyAccountLinkDisplay());
 
@@ -76,20 +85,19 @@ public class Level_03_Page_Object{
         homePage.clickToMyAccountLink();
 
         // Từ Home Page qua Customer Info Page
-        customerInfoPage = new CustomerInfoPageObject();
+        customerInfoPage = new CustomerInfoPageObject(driver);
         Assert.assertTrue(customerInfoPage.isGenderMaleSelected());
 
-        Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(),"");
-        Assert.assertEquals(customerInfoPage.getLastNameTextboxValue(),"");
-        Assert.assertEquals(customerInfoPage.getDayDropdownSelectedValue(),"");
-        Assert.assertEquals(customerInfoPage.getMonthDropdownSelectedValue(),"");
-        Assert.assertEquals(customerInfoPage.getYearDropdownSelectedValue(),"");
-        Assert.assertEquals(customerInfoPage.getEmailTextBoxValue(),"");
+        Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(),firstName);
+        Assert.assertEquals(customerInfoPage.getLastNameTextboxValue(),lastName);
+        Assert.assertEquals(customerInfoPage.getDayDropdownSelectedValue(),day
+        );
+        Assert.assertEquals(customerInfoPage.getMonthDropdownSelectedValue(),month);
+        Assert.assertEquals(customerInfoPage.getYearDropdownSelectedValue(),year);
+        Assert.assertEquals(customerInfoPage.getEmailTextBoxValue(),emailAddress);
+        Assert.assertEquals(customerInfoPage.getCompanyTextBoxValue(),companyName);
+    }
 
-    }
-    public int generateRandomNumber(){
-        return  new Random().nextInt(99999);
-    }
     @AfterClass
     public void afterClass(){
         driver.quit();

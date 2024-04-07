@@ -4,9 +4,10 @@
 
     <test name="Run on Firefox browser">
         <classes>
-            <class name="com.nopcommerce.users.Level_02_BasePage_I_init" />
-            <class name="com.nopcommerce.users.Level_02_BasePage_II_StaticMethod" />
-            <class name="com.nopcommerce.users.Level_02_BasePage_III_Inheritance" />
+<!--            <class name="com.nopcommerce.users.Level_02_BasePage_I_init" />-->
+<!--            <class name="com.nopcommerce.users.Level_02_BasePage_II_StaticMethod" />-->
+<!--            <class name="com.nopcommerce.users.Level_02_BasePage_III_Inheritance" />-->
+            <class name="com.nopcommerce.users.Level_03_Page_Object" />
         </classes>
     </test>
 
