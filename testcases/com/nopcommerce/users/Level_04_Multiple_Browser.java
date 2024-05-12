@@ -65,6 +65,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
     }
     @Test
     public void User_02_Login(){
+        registerPage.clickToLogoutLink();
         registerPage.clickToLoginLink();
         // Từ Register Page qua Login Page
         loginPage = new LoginPageObject(driver);

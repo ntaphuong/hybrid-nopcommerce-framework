@@ -100,6 +100,7 @@ public class BasePage {
         getElement(driver,locator).click();
     }
     public void sendKeyToElement(WebDriver driver, String locator, String keysToSend){
+        getElement(driver,locator).clear();
         getElement(driver,locator).sendKeys(keysToSend);
     }
     public void selectItemInDropdown(WebDriver driver, String locator, String textItem){

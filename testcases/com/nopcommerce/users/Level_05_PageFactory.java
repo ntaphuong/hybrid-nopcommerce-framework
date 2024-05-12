@@ -6,6 +6,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import pageFactory.CustomerInfoPageFactory;
+import pageFactory.HomePageFactory;
+import pageFactory.LoginPageFactory;
+import pageFactory.RegisterPageFactory;
 import pageObjects.CustomerInfoPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
@@ -14,10 +18,10 @@ import pageObjects.RegisterPageObject;
 public class Level_05_PageFactory extends BaseTest {
     // Declare variables
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInfoPageObject customerInfoPage;
+    private HomePageFactory homePage;
+    private RegisterPageFactory registerPage;
+    private LoginPageFactory loginPage;
+    private CustomerInfoPageFactory customerInfoPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
     @Parameters("browser")
     // pre condition
@@ -25,7 +29,7 @@ public class Level_05_PageFactory extends BaseTest {
     public void beforeClass(String browserName){
         driver = getBrowserDriver(browserName);
         // Mở URL lên, qua HomePage
-        homePage = new HomePageObject(driver);
+        homePage = new HomePageFactory(driver);
         firstName = "Phượng";
         lastName = "Nguyễn";
         day = "19";
@@ -40,7 +44,7 @@ public class Level_05_PageFactory extends BaseTest {
         //Action 1
         homePage.clickToRegisterLink();
         // Từ Home Page qua Register Page
-        registerPage = new RegisterPageObject(driver);
+        registerPage = new RegisterPageFactory(driver);
 
         registerPage.clickToMaleRadio();
 
@@ -60,16 +64,17 @@ public class Level_05_PageFactory extends BaseTest {
     }
     @Test
     public void User_02_Login(){
+        registerPage.clickToLogoutLink();
         registerPage.clickToLoginLink();
         // Từ Register Page qua Login Page
-        loginPage = new LoginPageObject(driver);
+        loginPage = new LoginPageFactory(driver);
 
         loginPage.enterToEmailTextBox(emailAddress);
         loginPage.enterToPasswordTextBox(password);
         loginPage.clickToLoginButton();
 
         // Từ Login Page qua Home page
-        homePage = new HomePageObject(driver);
+        homePage = new HomePageFactory(driver);
 
         Assert.assertTrue(homePage.isMyAccountLinkDisplay());
 
@@ -80,7 +85,7 @@ public class Level_05_PageFactory extends BaseTest {
         homePage.clickToMyAccountLink();
 
         // Từ Home Page qua Customer Info Page
-        customerInfoPage = new CustomerInfoPageObject(driver);
+        customerInfoPage = new CustomerInfoPageFactory(driver);
         Assert.assertTrue(customerInfoPage.isGenderMaleSelected());
 
         Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(),firstName);
