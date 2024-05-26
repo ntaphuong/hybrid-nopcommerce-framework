@@ -8,8 +8,8 @@
 <!--            <class name="com.nopcommerce.users.Level_02_BasePage_I_init" />-->
 <!--            <class name="com.nopcommerce.users.Level_02_BasePage_II_StaticMethod" />-->
 <!--            <class name="com.nopcommerce.users.Level_02_BasePage_III_Inheritance" />-->
-            <class name="com.nopcommerce.users.Level_04_Multiple_Browser"/>
-            <class name="com.nopcommerce.users.Level_05_PageFactory"/>
+<!--            <class name="com.nopcommerce.users.Level_04_Multiple_Browser"/>-->
+            <class name="com.nopcommerce.users.Level_07_Switch_Page_Object"/>
         </classes>
     </test>
 "<!--    <test name="Run on Chrome browser">-->
