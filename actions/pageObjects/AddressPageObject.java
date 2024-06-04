@@ -3,9 +3,10 @@ package pageObjects;
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 
-public class AddressPageObject extends BasePage {
+public class AddressPageObject extends SidebarPageObject {
         private WebDriver driver;
     public AddressPageObject(WebDriver driver) {
+            super(driver);
             this.driver = driver;
         }
 
