@@ -1,11 +1,10 @@
-package pageObjects;
+package pageObjects.users;
 
-import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 
-public class RewardPointPageObject extends SidebarPageObject {
+public class UserRewardPointPO extends UserSidebarPO {
         private WebDriver driver;
-    public RewardPointPageObject(WebDriver driver) {
+    public UserRewardPointPO(WebDriver driver) {
         // hàm super gọi đến constructor của lớp cha
         super(driver);
         this.driver = driver;

@@ -1,31 +1,40 @@
 package com.nopcommerce.users;
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.devtools.v85.page.Page;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.admin.AdminDashboardPO;
+import pageObjects.admin.AdminLoginPO;
+import pageObjects.users.UserHomePO;
+import pageObjects.users.UserLoginPageObject;
+import pageObjects.users.UserRegisterPO;
 
 public class Level_09_Switch_Site_Url extends BaseTest {
     // Declare variables
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInfoPageObject customerInfoPage;
-    private AddressPageObject addressPage;
-    private RewardPointPageObject rewardPointPage;
-    private OrderPageObject orderPage;
+    private UserHomePO userHomePage;
+    private UserRegisterPO userRegisterPage;
+    private UserLoginPageObject userLoginPage;
+    private AdminLoginPO adminLoginPage;
+    private AdminDashboardPO adminDashboardPage;
+    private String userUrlValue, adminUrlValue;
+
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
-    @Parameters("browser")
+    //@Parameters("browser")
+    @Parameters({"browser","userUrl","adminUrl"})
     // pre condition
     @BeforeClass
-    public void beforeClass(String browserName){
-        driver = getBrowserDriver(browserName);
+    public void beforeClass(String browserName, String userUrl, String adminUrl){
+        userUrlValue = userUrl;
+        adminUrlValue = adminUrl;
+        driver = getBrowserDriver(browserName,userUrlValue);
         // Mở URL lên, qua HomePage
-        homePage = PageGenerator.getHomePage(driver);
+        userHomePage = PageGenerator.getUserHomePage(driver);
         firstName = "Phượng";
         lastName = "Nguyễn";
         day = "19";
@@ -34,79 +43,51 @@ public class Level_09_Switch_Site_Url extends BaseTest {
         emailAddress = "phuong"+generateRandomNumber()+"@gmail.com";
         companyName = "PhuongNTACompany";
         password = "123456";
+
+        // Pre-Condition
+        userRegisterPage = userHomePage.clickToRegisterLink();
+        userRegisterPage.clickToMaleRadio();
+        userRegisterPage.EnterToFirstNameTexBox(firstName);
+        userRegisterPage.EnterToLastNameTextBox(lastName);
+        userRegisterPage.selectDayDropdown(day);
+        userRegisterPage.selectMonthDropdown(month);
+        userRegisterPage.selectYearDropdown(year);
+        userRegisterPage.enterToEmailTextbox(emailAddress);
+        userRegisterPage.enterToCompanyTextbox(companyName);
+        userRegisterPage.enterToPasswordTextbox(password);
+        userRegisterPage.enterToConfirmPasswordTextbox(password);
+        userRegisterPage.clickToRegisterButton();
+
+        Assert.assertEquals(userRegisterPage.getRegisterSuccessMessage(), "Your registration completed");
     }
     @Test
-    public void User_01_Register(){
-//        //Action 1
-//        homePage.clickToRegisterLink();
-//        // Từ Home Page qua Register Page
-//        registerPage = new RegisterPageObject(driver);
-        registerPage = homePage.clickToRegisterLink();
-
-        registerPage.clickToMaleRadio();
-
-        registerPage.EnterToFirstNameTexBox(firstName);
-        registerPage.EnterToLastNameTextBox(lastName);
-        registerPage.selectDayDropdown(day);
-        registerPage.selectMonthDropdown(month);
-        registerPage.selectYearDropdown(year);
-        registerPage.enterToEmailTextbox(emailAddress);
-        registerPage.enterToCompanyTextbox(companyName);
-        registerPage.enterToPasswordTextbox(password);
-        registerPage.enterToConfirmPasswordTextbox(password);
-        registerPage.clickToRegisterButton();
-
-        Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
-
-    }
-    @Test
-    public void User_02_Login(){
+    public void Role_01_User_Site_To_Admin_Site(){
         // Từ Register Page qua Login Page
-        registerPage.clickToLogoutLink();
-        loginPage = registerPage.clickToLoginLink();
-
-        loginPage.enterToEmailTextBox(emailAddress);
-        loginPage.enterToPasswordTextBox(password);
-
-
+        userRegisterPage.clickToLogoutLink();
+        userLoginPage = userRegisterPage.clickToLoginLink();
         // Từ Login Page qua Home page
-        homePage = loginPage.clickToLoginButton();
+        userHomePage = userLoginPage.loginToSystem(emailAddress,password);
+        Assert.assertTrue(userHomePage.isMyAccountLinkDisplay());
+        // Step đẻ order 1 product nào đó
+        // .....
+        // Qua trang Admin để verify / approve cái order ở trên vs quyền Admin
+        userHomePage.openPageURL(driver,adminUrlValue);
+        // Chưa login
+        adminLoginPage = PageGenerator.getAdminLoginPage(driver);
 
-        Assert.assertTrue(homePage.isMyAccountLinkDisplay());
+        // Login vào trang Admin
+        adminLoginPage.enterToEmailTextbox("");
+        adminLoginPage.enterToPasswordTextbox("");
+        adminDashboardPage = adminLoginPage.clickToLoginButton();
 
+        // Đã login trước đó rồi
+        adminDashboardPage = PageGenerator.getAdminDashboardPage(driver);
 
     }
     @Test
-    public void User_03_MyAccount(){
-        // Từ Home Page qua Customer Info Page
-        customerInfoPage = homePage.clickToMyAccountLink();
-        Assert.assertTrue(customerInfoPage.isGenderMaleSelected());
+    public void Role_02_Admin_Site_To_User_Site(){
+        adminDashboardPage.openPageURL(driver,userUrlValue);
 
-        Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(),firstName);
-        Assert.assertEquals(customerInfoPage.getLastNameTextboxValue(),lastName);
-        Assert.assertEquals(customerInfoPage.getDayDropdownSelectedValue(),day
-        );
-        Assert.assertEquals(customerInfoPage.getMonthDropdownSelectedValue(),month);
-        Assert.assertEquals(customerInfoPage.getYearDropdownSelectedValue(),year);
-        Assert.assertEquals(customerInfoPage.getEmailTextBoxValue(),emailAddress);
-        Assert.assertEquals(customerInfoPage.getCompanyTextBoxValue(),companyName);
-    }
-    @Test
-    public void User_04_Switch_Page(){
-        // Customer Info -> Address
-        addressPage = customerInfoPage.openAddressPage();
-
-        // Address -> Reward Point
-        rewardPointPage= addressPage.openRewardPointPage();
-
-        //Reward Point -> Order
-        orderPage = rewardPointPage.openOrderPage();
-
-        // Order -> Address
-        addressPage = orderPage.openAddressPage();
-
-        // Address -> Customer Info
-        customerInfoPage = addressPage.openCustomerInfoPage();
     }
 
     @AfterClass

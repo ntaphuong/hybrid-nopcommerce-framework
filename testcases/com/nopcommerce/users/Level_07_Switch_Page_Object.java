@@ -7,17 +7,18 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.users.*;
 
 public class Level_07_Switch_Page_Object extends BaseTest {
     // Declare variables
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInfoPageObject customerInfoPage;
-    private AddressPageObject addressPage;
-    private RewardPointPageObject rewardPointPage;
-    private OrderPageObject orderPage;
+    private UserHomePO homePage;
+    private UserRegisterPO registerPage;
+    private UserLoginPageObject loginPage;
+    private UserCustomerInfoPO customerInfoPage;
+    private UserAddressPO addressPage;
+    private UserRewardPointPO rewardPointPage;
+    private UserOrderPO orderPage;
 
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
     @Parameters("browser")
@@ -26,7 +27,7 @@ public class Level_07_Switch_Page_Object extends BaseTest {
     public void beforeClass(String browserName){
         driver = getBrowserDriver(browserName);
         // Mở URL lên, qua HomePage
-        homePage = PageGenerator.getHomePage(driver);
+        homePage = PageGenerator.getUserHomePage(driver);
         firstName = "Phượng";
         lastName = "Nguyễn";
         day = "19";

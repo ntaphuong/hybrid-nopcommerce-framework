@@ -7,14 +7,18 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.users.UserCustomerInfoPO;
+import pageObjects.users.UserHomePO;
+import pageObjects.users.UserLoginPageObject;
+import pageObjects.users.UserRegisterPO;
 
 public class Level_06_Page_Generator_03 extends BaseTest {
     // Declare variables
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInfoPageObject customerInfoPage;
+    private UserHomePO homePage;
+    private UserRegisterPO registerPage;
+    private UserLoginPageObject loginPage;
+    private UserCustomerInfoPO customerInfoPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
     @Parameters("browser")
     // pre condition
@@ -22,7 +26,7 @@ public class Level_06_Page_Generator_03 extends BaseTest {
     public void beforeClass(String browserName){
         driver = getBrowserDriver(browserName);
         // Mở URL lên, qua HomePage
-        homePage = PageGenerator.getHomePage(driver);
+        homePage = PageGenerator.getUserHomePage(driver);
         firstName = "Phượng";
         lastName = "Nguyễn";
         day = "19";

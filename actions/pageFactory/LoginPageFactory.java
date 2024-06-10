@@ -4,9 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pageObjects.HomePageObject;
-import pageObjects.PageGenerator;
-import pageUIs.LoginPageUI;
 
 public class LoginPageFactory extends BasePage{
     private WebDriver driver;

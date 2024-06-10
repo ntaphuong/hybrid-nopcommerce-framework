@@ -1,6 +1,6 @@
-package pageUIs;
+package pageUIs.users;
 
-public class HomePageUI {
+public class UserHomePageUI {
     // biến none static thì bắt buộc phải khởi tạo đối tượng hoặc kế thừa mới dùng được
     // private / default: khác package không dùng được
     // protected: các class bên page object ko kế thừa page UI nên ko áp dụng được
