@@ -3,7 +3,10 @@ package pageObjects.users;
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 import pageObjects.PageGenerator;
+import pageUIs.users.UserCustomerInfoPageUI;
 import pageUIs.users.UserHomePageUI;
+import pageUIs.users.UserRegisterPageUI;
+import pageUIs.users.UserSidebarPageUI;
 
 public class UserHomePO extends BasePage {
     private WebDriver driver;
@@ -33,4 +36,10 @@ public class UserHomePO extends BasePage {
         clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
         return PageGenerator.getUserCustomerPage(driver);
     }
+    public UserLoginPageObject OpenLoginPage(){
+        waitForElementClickable(driver, UserRegisterPageUI.LOGIN_LINK);
+        clickToElement(driver, UserRegisterPageUI.LOGIN_LINK);
+        return PageGenerator.getUserLoginPage(driver);
+    }
+
 }

@@ -300,9 +300,10 @@ public class BasePage {
         return PageGenerator.getUserOrderPage(driver);
     }
     public UserCustomerInfoPO openCustomerInfoPage(WebDriver driver){
-        waitForElementClickable(driver, BasePageUI.CUSTOMER_LINK);
+        waitForElementClickable(driver, UserSidebarPageUI.CUSTOMER_LINK);
         clickToElement(driver, UserSidebarPageUI.CUSTOMER_LINK);
         return PageGenerator.getUserCustomerInfoPage(driver);
     }
+
 
 }

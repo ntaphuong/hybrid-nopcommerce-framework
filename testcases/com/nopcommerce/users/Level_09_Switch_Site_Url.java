@@ -10,9 +10,11 @@ import org.testng.annotations.Test;
 import pageObjects.*;
 import pageObjects.admin.AdminDashboardPO;
 import pageObjects.admin.AdminLoginPO;
+import pageObjects.users.UserCustomerInfoPO;
 import pageObjects.users.UserHomePO;
 import pageObjects.users.UserLoginPageObject;
 import pageObjects.users.UserRegisterPO;
+import pageUIs.users.UserHomePageUI;
 
 public class Level_09_Switch_Site_Url extends BaseTest {
     // Declare variables
@@ -22,9 +24,9 @@ public class Level_09_Switch_Site_Url extends BaseTest {
     private UserLoginPageObject userLoginPage;
     private AdminLoginPO adminLoginPage;
     private AdminDashboardPO adminDashboardPage;
-    private String userUrlValue, adminUrlValue;
-
+    private UserCustomerInfoPO userCustomerInfoPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
+    private String adminEmailAddress, adminPassword, userUrlValue, adminUrlValue;
     //@Parameters("browser")
     @Parameters({"browser","userUrl","adminUrl"})
     // pre condition
@@ -44,6 +46,9 @@ public class Level_09_Switch_Site_Url extends BaseTest {
         companyName = "PhuongNTACompany";
         password = "123456";
 
+        adminEmailAddress = "phuong@gmail.com";
+        adminPassword = "12345678";
+
         // Pre-Condition
         userRegisterPage = userHomePage.clickToRegisterLink();
         userRegisterPage.clickToMaleRadio();
@@ -59,12 +64,11 @@ public class Level_09_Switch_Site_Url extends BaseTest {
         userRegisterPage.clickToRegisterButton();
 
         Assert.assertEquals(userRegisterPage.getRegisterSuccessMessage(), "Your registration completed");
+        userHomePage =  userRegisterPage.clickToLogoutLink();
     }
     @Test
     public void Role_01_User_Site_To_Admin_Site(){
-        // Từ Register Page qua Login Page
-        userRegisterPage.clickToLogoutLink();
-        userLoginPage = userRegisterPage.clickToLoginLink();
+        userLoginPage = userHomePage.OpenLoginPage();
         // Từ Login Page qua Home page
         userHomePage = userLoginPage.loginToSystem(emailAddress,password);
         Assert.assertTrue(userHomePage.isMyAccountLinkDisplay());
@@ -76,17 +80,28 @@ public class Level_09_Switch_Site_Url extends BaseTest {
         adminLoginPage = PageGenerator.getAdminLoginPage(driver);
 
         // Login vào trang Admin
-        adminLoginPage.enterToEmailTextbox("");
-        adminLoginPage.enterToPasswordTextbox("");
+        adminLoginPage.enterToEmailTextbox(adminEmailAddress);
+        adminLoginPage.enterToPasswordTextbox(adminPassword);
         adminDashboardPage = adminLoginPage.clickToLoginButton();
 
-        // Đã login trước đó rồi
-        adminDashboardPage = PageGenerator.getAdminDashboardPage(driver);
+
 
     }
     @Test
     public void Role_02_Admin_Site_To_User_Site(){
+        // Vào trang Order/ Customer/ ...
+        // .....
         adminDashboardPage.openPageURL(driver,userUrlValue);
+        userHomePage = PageGenerator.getUserHomePage(driver);
+        // Action các step tiếp theo
+        userCustomerInfoPage = userHomePage.clickToMyAccountLink();
+        Assert.assertEquals(userCustomerInfoPage.getFirstNameTextboxValue(),firstName);
+        Assert.assertEquals(userCustomerInfoPage.getLastNameTextboxValue(),lastName);
+        Assert.assertEquals(userCustomerInfoPage.getDayDropdownSelectedValue(),day);
+        Assert.assertEquals(userCustomerInfoPage.getMonthDropdownSelectedValue(),month);
+        Assert.assertEquals(userCustomerInfoPage.getYearDropdownSelectedValue(),year);
+        Assert.assertEquals(userCustomerInfoPage.getEmailTextBoxValue(),emailAddress);
+        Assert.assertEquals(userCustomerInfoPage.getCompanyTextBoxValue(),companyName);
 
     }
 

@@ -85,8 +85,7 @@ public class Level_08_Page_Navigation extends BaseTest {
 
         Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(),firstName);
         Assert.assertEquals(customerInfoPage.getLastNameTextboxValue(),lastName);
-        Assert.assertEquals(customerInfoPage.getDayDropdownSelectedValue(),day
-        );
+        Assert.assertEquals(customerInfoPage.getDayDropdownSelectedValue(),day);
         Assert.assertEquals(customerInfoPage.getMonthDropdownSelectedValue(),month);
         Assert.assertEquals(customerInfoPage.getYearDropdownSelectedValue(),year);
         Assert.assertEquals(customerInfoPage.getEmailTextBoxValue(),emailAddress);

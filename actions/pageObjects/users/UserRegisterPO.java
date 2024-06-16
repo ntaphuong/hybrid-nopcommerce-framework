@@ -77,9 +77,10 @@ public class UserRegisterPO extends BasePage {
         clickToElement(driver, UserRegisterPageUI.LOGIN_LINK);
         return PageGenerator.getUserLoginPage(driver);
     }
-    public void clickToLogoutLink() {
+    public UserHomePO clickToLogoutLink() {
         waitForElementClickable(driver, UserRegisterPageUI.LOGOUT_LINK);
         clickToElement(driver, UserRegisterPageUI.LOGOUT_LINK);
+        return PageGenerator.getUserHomePage(driver);
     }
     public void clickToContinueLink(){
         waitForElementVisible(driver, UserRegisterPageUI.CONTINUE_LINK);
