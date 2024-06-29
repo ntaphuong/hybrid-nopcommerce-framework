@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopCommerce;
 
 import org.bouncycastle.pqc.crypto.newhope.NHSecretKeyProcessor;
 

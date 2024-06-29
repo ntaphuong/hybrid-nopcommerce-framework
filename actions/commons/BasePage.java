@@ -6,13 +6,13 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.*;
-import pageObjects.users.UserAddressPO;
-import pageObjects.users.UserCustomerInfoPO;
-import pageObjects.users.UserOrderPO;
-import pageObjects.users.UserRewardPointPO;
-import pageUIs.BasePageUI;
-import pageUIs.users.UserSidebarPageUI;
+import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.users.UserAddressPO;
+import pageObjects.nopCommerce.users.UserCustomerInfoPO;
+import pageObjects.nopCommerce.users.UserOrderPO;
+import pageObjects.nopCommerce.users.UserRewardPointPO;
+import pageUIs.nopCommerce.BasePageUI;
+import pageUIs.nopCommerce.users.UserSidebarPageUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -94,11 +94,37 @@ public class BasePage {
     }
 
     // WebElement
-    public WebElement getElement(WebDriver driver, String locator){
-        return driver.findElement(getByXpath(locator));
+    protected WebElement getElement(WebDriver driver, String locator){
+        return driver.findElement(getByLocator(locator));
     }
-    public List<WebElement> getListElement(WebDriver driver, String locator){
-        return driver.findElements(getByXpath(locator));
+    protected List<WebElement> getListElement(WebDriver driver, String locator){
+        return driver.findElements(getByLocator(locator));
+    }
+    private String castParameter(String locator, String... resParameter){
+        return String.format(locator, (Object[]) resParameter);
+    }
+    // Truyền tham số vào loại gì sẽ trả về kiểu By tương ứng
+    // String prefix: css/ id/ name/ class => By.css / By.id/ By.name
+    // Convention: css / Css/ CSS - id / ID / Id
+    // css = button#login => By.cssSelector("button#login");
+    private By getByLocator(String prefixLocator){
+        By by = null;
+        if(prefixLocator.toLowerCase().startsWith("css")){
+            by = By.cssSelector(prefixLocator.substring(4));
+        } else if (prefixLocator.toLowerCase().startsWith("id")) {
+            by = By.id(prefixLocator.substring(3));
+        } else if(prefixLocator.toLowerCase().startsWith("name")){
+            by= By.name(prefixLocator.substring(5));
+        }else if(prefixLocator.toLowerCase().startsWith("class")){
+            by= By.className(prefixLocator.substring(6));
+        }else if(prefixLocator.toLowerCase().startsWith("xpath")){
+            by= By.xpath(prefixLocator.substring(6));
+        }else if(prefixLocator.toLowerCase().startsWith("tagname")){
+            by= By.tagName(prefixLocator.substring(8));
+        } else{
+            throw new RuntimeException("Locator type is not support!");
+        }
+        return by;
     }
     public By getByXpath(String locator){
         return By.xpath(locator);
@@ -106,15 +132,28 @@ public class BasePage {
     public void clickToElement(WebDriver driver, String locator){
         getElement(driver,locator).click();
     }
+    public void clickToElement(WebDriver driver, String locator, String resParameter){
+        getElement(driver,castParameter(locator, resParameter)).click();
+    }
     public void sendKeyToElement(WebDriver driver, String locator, String keysToSend){
         getElement(driver,locator).clear();
         getElement(driver,locator).sendKeys(keysToSend);
     }
+    public void sendKeyToElement(WebDriver driver, String locator, String keysToSend, String resParameter){
+        getElement(driver,castParameter(locator,resParameter)).clear();
+        getElement(driver,castParameter(locator,resParameter)).sendKeys(keysToSend);
+    }
     public void selectItemInDropdown(WebDriver driver, String locator, String textItem){
         new Select( getElement(driver,locator)).selectByVisibleText(textItem);
     }
+    public void selectItemInDropdown(WebDriver driver, String locator, String textItem,String resParameter){
+        new Select( getElement(driver,castParameter(locator,resParameter))).selectByVisibleText(textItem);
+    }
     public String getSelectedItemInDropdown(WebDriver driver, String locator){
         return new Select( getElement(driver,locator)).getFirstSelectedOption().getText();
+    }
+    public String getSelectedItemInDropdown(WebDriver driver, String locator,String resParameter){
+        return new Select( getElement(driver,castParameter(locator,resParameter))).getFirstSelectedOption().getText();
     }
     public boolean isDropdownMultiple(WebDriver driver, String locator){
         return new Select(getElement(driver,locator)).isMultiple();
@@ -149,11 +188,20 @@ public class BasePage {
     public String getElementAttribute(WebDriver driver, String locator, String attributeName){
             return  getElement(driver, locator).getAttribute(attributeName);
     }
+    public String getElementAttribute(WebDriver driver, String locator, String attributeName, String resParameter){
+        return  getElement(driver, castParameter(locator,resParameter)).getAttribute(attributeName);
+    }
     public String getElementText(WebDriver driver, String locator){
             return getElement(driver,locator).getText();
     }
+    public String getElementText(WebDriver driver, String locator, String resParameter){
+        return getElement(driver,castParameter(locator,resParameter)).getText();
+    }
     public String getElementCssValue(WebDriver driver, String locator, String propertyName){
            return getElement(driver,locator).getCssValue(propertyName);
+    }
+    public String getElementCssValue(WebDriver driver, String locator, String propertyName, String resParameter){
+        return getElement(driver,castParameter(locator,resParameter)).getCssValue(propertyName);
     }
     public String getHexaColorFromGRPA(String rgbaValue){
         return Color.fromString(rgbaValue).asHex().toUpperCase();
@@ -174,11 +222,17 @@ public class BasePage {
     public boolean isElementDisplay(WebDriver driver, String locator){
         return getElement(driver,locator).isDisplayed();
 }
+    public boolean isElementDisplay(WebDriver driver, String locator, String resParameter){
+        return getElement(driver,castParameter(locator,resParameter)).isDisplayed();
+    }
     public boolean isElementEnabled(WebDriver driver, String locator) {
         return getElement(driver, locator).isEnabled();
     }
     public boolean isElementSelected(WebDriver driver, String locator) {
         return getElement(driver, locator).isSelected();
+    }
+    public boolean isElementSelected(WebDriver driver, String locator, String resParameter) {
+        return getElement(driver, castParameter(locator,resParameter)).isSelected();
     }
     public void switchToIframe(WebDriver driver, String locator){
             driver.switchTo().frame(getElement(driver, locator));
@@ -268,19 +322,28 @@ public class BasePage {
 
     // Wait
     public void waitForElementVisible(WebDriver driver, String locator){
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locator)));
+    }
+    public void waitForElementVisible(WebDriver driver, String locator, String resParameter){
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(castParameter(locator,resParameter))));
     }
     public void waitForElementPresent(WebDriver driver, String locator){
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.presenceOfElementLocated(getByXpath(locator)));
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.presenceOfElementLocated(getByLocator(locator)));
     }
     public void waitForElementInvisible(WebDriver driver, String locator){
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(locator)));
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locator)));
     }
     public void waitForElementClickable(WebDriver driver, String locator){
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getByLocator(locator)));
+    }
+    public void waitForElementClickable(WebDriver driver, String locator, String resParameter){
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getByLocator(castParameter(locator,resParameter))));
     }
     public void waitForElementSelected(WebDriver driver, String locator){
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByXpath(locator)));
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByLocator(locator)));
+    }
+    public void waitForElementSelected(WebDriver driver, String locator, String resParameter){
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByLocator(castParameter(locator,resParameter))));
     }
 
     // 4 hàm sau dùng cho Level_07_Switch_Page_Object
