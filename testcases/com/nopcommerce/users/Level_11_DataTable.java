@@ -21,8 +21,8 @@ public class Level_11_DataTable extends BaseTest {
         homePage = PageGenerator.getHomePage(driver);
 
     }
-    @Test
-    public void Table_01(){
+   // @Test
+    public void Table_01_Paging(){
         // Navigave to any page (paging)
         homePage.openPageByNumber("15");
         Assert.assertTrue(homePage.isPageNumberActived("15"));
@@ -33,11 +33,28 @@ public class Level_11_DataTable extends BaseTest {
         homePage.openPageByNumber("20");
         Assert.assertTrue(homePage.isPageNumberActived("20"));
     }
-    @Test
+   @Test
     public void Table_02(){
+        // Enter value to header textbox
+        homePage.enterToTextboxByHeaderName("Country","Afghanistan");
+        homePage.sleepInSeconds(3);
+        Assert.assertTrue(homePage.isRowDataValueisDisplayed("384187","Afghanistan","407124","791312"));
+        homePage.refreshCurrentPage(driver);
 
+        homePage.enterToTextboxByHeaderName("Females","283821");
+        homePage.sleepInSeconds(3);
+        Assert.assertTrue(homePage.isRowDataValueisDisplayed("283821","Algeria","295140","578961"));
+        homePage.refreshCurrentPage(driver);
+
+        homePage.enterToTextboxByHeaderName("Males","295140");
+        homePage.sleepInSeconds(3);
+        Assert.assertTrue(homePage.isRowDataValueisDisplayed("283821","Algeria","295140","578961"));
+        homePage.refreshCurrentPage(driver);
+
+        // verify data
 
     }
+
     @AfterClass
     public void afterClass(){
         driver.quit();
