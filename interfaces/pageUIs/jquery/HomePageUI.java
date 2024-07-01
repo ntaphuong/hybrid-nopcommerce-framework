@@ -7,4 +7,9 @@ public class HomePageUI {
             "following-sibling::td[@data-key='country' and text()='%s']/"+
             "following-sibling::td[@data-key='males' and text()='%s']/"+
             "following-sibling::td[@data-key='total' and text()='%s']";
+    public static final String DYNAMIC_DELETE_BUTTON_BY_COUNTRY_NAME = "XPATH=//td[@data-key='country' and text()='%s']"+
+            "/preceding-sibling::td[@class='qgrd-actions']/button[contains(@class,'remove')]";
+    public static final String DYNAMIC_EDIT_BUTTON_BY_COUNTRY_NAME = "XPATH=//td[@data-key='country' and text()='%s']"+
+            "/preceding-sibling::td[@class='qgrd-actions']/button[contains(@class,'edit')]";
+    public static final String LOAD_DATA_BUTTON = "css=button#load";
 }

@@ -30,4 +30,29 @@ public class HomePO extends BasePage {
         waitForElementVisible(driver,HomePageUI.DYNAMIC_DATA_ROW,female,country,male,total);
         return isElementDisplay(driver,HomePageUI.DYNAMIC_DATA_ROW,female,country,male,total);
     }
+
+    public void deleteRowByCountryName(String countryName) {
+        waitForElementClickable(driver, HomePageUI.DYNAMIC_DELETE_BUTTON_BY_COUNTRY_NAME, countryName);
+        clickToElement(driver, HomePageUI.DYNAMIC_DELETE_BUTTON_BY_COUNTRY_NAME, countryName);
+        sleepInSeconds(2);
+    }
+
+    public void editRowByCountryName(String countryName) {
+        waitForElementClickable(driver, HomePageUI.DYNAMIC_EDIT_BUTTON_BY_COUNTRY_NAME, countryName);
+        clickToElement(driver, HomePageUI.DYNAMIC_EDIT_BUTTON_BY_COUNTRY_NAME, countryName);
+        sleepInSeconds(2);
+    }
+
+    public void clickLoadDataButton() {
+        waitForElementClickable(driver, HomePageUI.LOAD_DATA_BUTTON);
+        clickToElement(driver, HomePageUI.LOAD_DATA_BUTTON);
+    }
+
+    public void enterToTextBoxByIndex(String rowIndex, String columnName, String valueToSendKey) {
+        // Từ column name làm sao lấy ra được column index
+
+        // convert sang dạng text (String)
+
+        // Truyền 2 giá trị là rowIndex/ columnIndex vào locator để tương tác và sendkey
+    }
 }
