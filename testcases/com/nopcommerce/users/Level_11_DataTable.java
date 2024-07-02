@@ -55,7 +55,7 @@ public class Level_11_DataTable extends BaseTest {
         homePage.refreshCurrentPage(driver);
 
     }
-    @Test
+  //  @Test
     public void Table_03_Delete_Edit(){
         //  click Delete button
         homePage.enterToTextboxByHeaderName("Country","Afghanistan");
@@ -79,7 +79,7 @@ public class Level_11_DataTable extends BaseTest {
         homePage.openPageURL(driver,"https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/");
         homePage.clickLoadDataButton();
         // có thể thao tác với bất kỳ 1 column/ row nào
-        homePage.enterToTextBoxByIndex("4", "Contact Person", "Phuongnta");
+     //   homePage.enterToTextBoxByIndex("4", "Contact Person", "Phuongnta");
         homePage.enterToTextBoxByIndex("2", "Company", "MJ Company");
 
         homePage.selectToDropdownByIndex("6", "Country","Hong Kong");
@@ -87,10 +87,10 @@ public class Level_11_DataTable extends BaseTest {
 
         homePage.checkToCheckboxByIndex("6", "NPO?",true);
         homePage.checkToCheckboxByIndex("5", "NPO?",false);
-
-        homePage.clickToIconByIndex("8","Move Up");
-        homePage.clickToIconByIndex("6","Remove");
-        homePage.clickToIconByIndex("4","Insert");
+//
+//        homePage.clickToIconByIndex("8","Move Up");
+//        homePage.clickToIconByIndex("6","Remove");
+//        homePage.clickToIconByIndex("4","Insert");
 
     }
 

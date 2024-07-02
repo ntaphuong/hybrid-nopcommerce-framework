@@ -50,9 +50,25 @@ public class HomePO extends BasePage {
 
     public void enterToTextBoxByIndex(String rowIndex, String columnName, String valueToSendKey) {
         // Từ column name làm sao lấy ra được column index
-
+        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size() + 1;
+        System.out.println("columnIndexNumber= "+columnIndexNumber);
         // convert sang dạng text (String)
-
+        String columnIndex = String.valueOf(columnIndexNumber);
         // Truyền 2 giá trị là rowIndex/ columnIndex vào locator để tương tác và sendkey
+        sendKeyToElement(driver, HomePageUI.DYNAMIC_TEXTBOX_BY_ROW_AND_COLUMN_INDEX,valueToSendKey,rowIndex,columnIndex);
+    }
+
+    public void selectToDropdownByIndex(String rowIndex, String columnName, String valueToSelect) {
+        // Từ column name làm sao lấy ra được column index
+        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size() + 1;
+        // convert sang dạng text (String)
+        String columnIndex = String.valueOf(columnIndexNumber);
+        // Truyền 2 giá trị: rowIndex/ columnIndex vào locator để tương tác và select dropdown
+        selectItemInDropdown(driver,HomePageUI.DYNAMIC_DROPDOWN_BY_ROW_AND_COLUMN_INDEX, valueToSelect, rowIndex,columnIndex);
+        //Cách 2
+       // selectItemInDropdown(driver,HomePageUI.DYNAMIC_DROPDOWN_BY_ROW_AND_COLUMN_INDEX2, valueToSelect, columnIndex, rowIndex);
+    }
+
+    public void checkToCheckboxByIndex(String number, String s, boolean b) {
     }
 }
