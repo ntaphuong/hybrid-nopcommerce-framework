@@ -3,7 +3,11 @@ package pageObjects.jquery;
 import commons.BasePage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pageUIs.jquery.HomePageUI;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomePO extends BasePage {
     WebDriver driver;
@@ -50,8 +54,7 @@ public class HomePO extends BasePage {
 
     public void enterToTextBoxByIndex(String rowIndex, String columnName, String valueToSendKey) {
         // Từ column name làm sao lấy ra được column index
-        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size();
-        System.out.println("columnIndexNumber= "+columnIndexNumber);
+        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size()+1;
         // convert sang dạng text (String)
         String columnIndex = String.valueOf(columnIndexNumber);
         // Truyền 2 giá trị là rowIndex/ columnIndex vào locator để tương tác và sendkey
@@ -69,6 +72,35 @@ public class HomePO extends BasePage {
        // selectItemInDropdown(driver,HomePageUI.DYNAMIC_DROPDOWN_BY_ROW_AND_COLUMN_INDEX2, valueToSelect, columnIndex, rowIndex);
     }
 
-    public void checkToCheckboxByIndex(String number, String s, boolean b) {
+    public void checkToCheckboxByIndex(String rowIndex, String columnName, boolean checkOrUncheck) {
+        // Từ column name làm sao lấy ra được column index
+        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size()+1;
+        // convert sang dạng text (String)
+        String columnIndex = String.valueOf(columnIndexNumber);
+        if(checkOrUncheck){
+            checkToCheckboxRadio(driver,HomePageUI.DYNAMIC_CHECKBOX_BY_ROW_AND_COLUMN_INDEX, rowIndex,columnIndex);
+        } else{
+            checkToCheckboxRadio(driver,HomePageUI.DYNAMIC_CHECKBOX_BY_ROW_AND_COLUMN_INDEX, rowIndex,columnIndex);
+        }
+    }
+
+    public void clickToIconByIndex(String rowIndex, String iconName) {
+        waitForElementClickable(driver, HomePageUI.DYNAMIC_ICON_BY_ROW_AND_COLUMN_INDEX,rowIndex, iconName);
+        clickToElement(driver, HomePageUI.DYNAMIC_ICON_BY_ROW_AND_COLUMN_INDEX, rowIndex, iconName);
+    }
+
+    public List<String> getAllValueAtColumnName(String columnName) {
+        // Từ column name làm sao lấy ra được column index
+        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER2, columnName).size()+1;
+        // convert sang dạng text (String)
+        String columnIndex = String.valueOf(columnIndexNumber);
+
+       List<WebElement> allElementValueAtColumn= getListElement(driver, HomePageUI.ALL_VALUE_BY_COLUMN_INDEX, columnIndex);
+       List<String> allTextValue = new ArrayList<String>();
+       for(WebElement element: allElementValueAtColumn){
+           allTextValue.add(element.getText());
+       }
+       return allTextValue;
+
     }
 }

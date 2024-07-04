@@ -14,8 +14,13 @@ public class HomePageUI {
     public static final String LOAD_DATA_BUTTON = "css=button#load";
     public static final String DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER = "XPATH=//th[text()='%s']/preceding-sibling::th";
     public static final String DYNAMIC_TEXTBOX_BY_ROW_AND_COLUMN_INDEX = "XPATH=//tr[%s]/td[%s]/input";
-    public static final String DYNAMIC_DROPDOWN_BY_ROW_AND_COLUMN_INDEX = "XPATH=//tr[%S]/td[%s]//select";
+    public static final String DYNAMIC_DROPDOWN_BY_ROW_AND_COLUMN_INDEX = "XPATH=//tr[%s]/td[%s]//select";
     public static final String DYNAMIC_DROPDOWN_BY_ROW_AND_COLUMN_INDEX2 = "XPATH=//td[4]//select[@id='tblAppendGrid_country_%s']";
 
+    public static final String DYNAMIC_CHECKBOX_BY_ROW_AND_COLUMN_INDEX = "XPATH=//tr[%s]/td[%s]//input[@type='checkbox']";
+    public static final String DYNAMIC_ICON_BY_ROW_AND_COLUMN_INDEX = "XPATH=//tr[%s]/td//button[starts-with(@title,'%s')]";
+
+    public static final String DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER2 = "XPATH=//div[text()='%s']/ancestor::th/preceding-sibling::th";
+    public static final String ALL_VALUE_BY_COLUMN_INDEX = "XPATH=//td[%s]";
 
 }

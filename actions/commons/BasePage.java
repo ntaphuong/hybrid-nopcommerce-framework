@@ -135,7 +135,7 @@ public class BasePage {
     public void clickToElement(WebDriver driver, String locator){
         getElement(driver,locator).click();
     }
-    public void clickToElement(WebDriver driver, String locator, String resParameter){
+    public void clickToElement(WebDriver driver, String locator, String... resParameter){
         getElement(driver,castParameter(locator, resParameter)).click();
     }
     public void sendKeyToElement(WebDriver driver, String locator, String keysToSend){
@@ -217,11 +217,21 @@ public class BasePage {
                 getElement(driver,locator).click();
             }
     }
+    public void checkToCheckboxRadio(WebDriver driver, String locator, String... restParameter){
+        if(!getElement(driver,castParameter(locator,restParameter)).isSelected()){
+            getElement(driver,castParameter(locator,restParameter)).click();
+        }
+    }
     public void uncheckToCheckbox(WebDriver driver, String locator){
         if(getElement(driver,locator).isSelected()){
             getElement(driver,locator).click();
         }
-}
+    }
+    public void uncheckToCheckbox(WebDriver driver, String locator, String... restParameter){
+        if(getElement(driver,castParameter(locator,restParameter)).isSelected()){
+            getElement(driver,castParameter(locator,restParameter)).click();
+        }
+    }
     public boolean isElementDisplay(WebDriver driver, String locator){
         return getElement(driver,locator).isDisplayed();
 }

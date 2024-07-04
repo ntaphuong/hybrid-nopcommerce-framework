@@ -3,11 +3,10 @@
 <suite name="DataTable">
 
     <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/>
-<!--    <parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/"/>-->
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.nopcommerce.users.Level_11_DataTable"/>
+            <class name="com.jquery.cases.Level_11_DataTable"/>
         </classes>
     </test>
 </suite>

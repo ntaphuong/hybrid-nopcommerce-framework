@@ -1,4 +1,4 @@
-package com.nopcommerce.users;
+package com.jquery.cases;
 
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
@@ -74,7 +74,15 @@ public class Level_11_DataTable extends BaseTest {
         homePage.editRowByCountryName("Algeria");
     }
     @Test
-    public void Table_04_Action_By_Index(){
+    public void Table_04_Get_All_Value_Row_Or_Column(){
+        // verify 2 cách:
+        // 1. verify từng giá trị trả về
+        // 2. Lưu trữ allValue trả về ra 1 file rồi so sánh
+    homePage.getAllValueAtColumnName("Country");
+
+    }
+    @Test
+    public void Table_05_Action_By_Index(){
 
         homePage.openPageURL(driver,"https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/");
         homePage.clickLoadDataButton();
@@ -87,10 +95,11 @@ public class Level_11_DataTable extends BaseTest {
 
         homePage.checkToCheckboxByIndex("6", "NPO?",true);
         homePage.checkToCheckboxByIndex("5", "NPO?",false);
-//
-//        homePage.clickToIconByIndex("8","Move Up");
-//        homePage.clickToIconByIndex("6","Remove");
-//        homePage.clickToIconByIndex("4","Insert");
+
+        // Sau mỗi sự kiện đã thao tác thì index của từng row đã dc update lại
+        homePage.clickToIconByIndex("8","Move Up");
+        homePage.clickToIconByIndex("6","Remove");
+        homePage.clickToIconByIndex("4","Insert");
 
     }
 
