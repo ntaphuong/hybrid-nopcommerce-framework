@@ -50,7 +50,7 @@ public class HomePO extends BasePage {
 
     public void enterToTextBoxByIndex(String rowIndex, String columnName, String valueToSendKey) {
         // Từ column name làm sao lấy ra được column index
-        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size() + 1;
+        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size();
         System.out.println("columnIndexNumber= "+columnIndexNumber);
         // convert sang dạng text (String)
         String columnIndex = String.valueOf(columnIndexNumber);
@@ -60,7 +60,7 @@ public class HomePO extends BasePage {
 
     public void selectToDropdownByIndex(String rowIndex, String columnName, String valueToSelect) {
         // Từ column name làm sao lấy ra được column index
-        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size() + 1;
+        int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size()+1;
         // convert sang dạng text (String)
         String columnIndex = String.valueOf(columnIndexNumber);
         // Truyền 2 giá trị: rowIndex/ columnIndex vào locator để tương tác và select dropdown

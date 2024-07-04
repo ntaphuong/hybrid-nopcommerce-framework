@@ -142,9 +142,9 @@ public class BasePage {
         getElement(driver,locator).clear();
         getElement(driver,locator).sendKeys(keysToSend);
     }
-    public void sendKeyToElement(WebDriver driver, String locator, String keysToSend, String... resParameter){
+    public void sendKeyToElement(WebDriver driver, String locator, String valueToSendkey, String... resParameter){
         getElement(driver,castParameter(locator,resParameter)).clear();
-        getElement(driver,castParameter(locator,resParameter)).sendKeys(keysToSend);
+        getElement(driver,castParameter(locator,resParameter)).sendKeys(valueToSendkey);
     }
     public void selectItemInDropdown(WebDriver driver, String locator, String textItem){
         new Select( getElement(driver,locator)).selectByVisibleText(textItem);
