@@ -21,8 +21,18 @@ public class Level_12_Upload extends BaseTest {
         homePage = PageGenerator.getHomePage(driver);
 
     }
-   // @Test
+    @Test
     public void Upload_01(){
+        // Lấy ra đường dẫn của file/ thư mục cho đúng
+        // Tất cả các OS: Window/ MAC / Linux đều chạy được
+
+        // Có thể upload 1 lần 1 file => dùng 1 hàm
+
+        // Có thể upload 1 lần nhiều file => dùng 1 hàm
+
+        // Có thể verify  => dùng 1 hàm
+
+        // Có cần care tới open file Dialog không?  => không cần, vì cách đang làm không đụng tới open file dialog
 
     }
 
