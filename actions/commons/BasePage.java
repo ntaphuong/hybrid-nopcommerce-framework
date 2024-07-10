@@ -11,6 +11,7 @@ import pageObjects.nopCommerce.users.UserAddressPO;
 import pageObjects.nopCommerce.users.UserCustomerInfoPO;
 import pageObjects.nopCommerce.users.UserOrderPO;
 import pageObjects.nopCommerce.users.UserRewardPointPO;
+import pageUIs.jquery.HomePageUI;
 import pageUIs.nopCommerce.BasePageUI;
 import pageUIs.nopCommerce.users.UserSidebarPageUI;
 
@@ -139,6 +140,8 @@ public class BasePage {
         getElement(driver,castParameter(locator, resParameter)).click();
     }
     public void sendKeyToElement(WebDriver driver, String locator, String keysToSend){
+        // 1 element là thẻ input mà bị ẩn thì khi dùng hàm clear() sẽ bị lỗi trên Firefox : "Could not be scrolled into view "
+        // Hàm sendkey thì lại ko care việc element có bị ẩn hay ko.
         getElement(driver,locator).clear();
         getElement(driver,locator).sendKeys(keysToSend);
     }
@@ -361,6 +364,19 @@ public class BasePage {
     public void waitForElementSelected(WebDriver driver, String locator, String... resParameter){
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByLocator(castParameter(locator,resParameter))));
     }
+    public void uploadMultipleFiles(WebDriver driver, String... fileNames){
+        // Lấy ra đường dẫn của thư mục upload file
+        String filePath = GlobalConstants.UPLOAD_PATH;
+        String fullFileName = "";
+        for(String file: fileNames){
+            fullFileName += filePath + file+"\n";
+        }
+        // cứt ký tự xuống dòng (\n) ở 2 đầu chuỗi đi
+        fullFileName = fullFileName.trim();
+
+        // dùng getElement để sendKey
+        getElement(driver,BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullFileName);
+    }
 
     // 4 hàm sau dùng cho Level_07_Switch_Page_Object
     public UserRewardPointPO openRewardPointPage(WebDriver driver){
@@ -383,6 +399,5 @@ public class BasePage {
         clickToElement(driver, UserSidebarPageUI.CUSTOMER_LINK);
         return PageGenerator.getUserCustomerInfoPage(driver);
     }
-
 
 }

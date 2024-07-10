@@ -23,4 +23,9 @@ public class HomePageUI {
     public static final String DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER2 = "XPATH=//div[text()='%s']/ancestor::th/preceding-sibling::th";
     public static final String ALL_VALUE_BY_COLUMN_INDEX = "XPATH=//td[%s]";
 
+  //  public static final String ICON_lIKE_TO_PAGE_FACEBOOK = "XPATH=//div[@class='x1w0boku  _18vj']/span";
+    public static final String FILE_LOADED_BY_FILENAME = "XPATH=//p[@class='name' and text()='%s']";
+    public static final String UPLOAD_BUTTON = "css=td>button.start";
+    public static final String FILE_UPLOADED_SUCCESS_BY_FILE_NAME = "XPATH=//p[@class='name']/a[@title='%s']";
+
 }
