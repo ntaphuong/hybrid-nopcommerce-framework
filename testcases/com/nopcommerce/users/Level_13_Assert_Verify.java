@@ -10,7 +10,7 @@ import pageObjects.nopCommerce.PageGenerator;
 import pageObjects.nopCommerce.users.*;
 
 
-public class Level_13_Assert_Veryfi extends BaseTest {
+public class Level_13_Assert_Verify extends BaseTest {
     // Declare variables
     private WebDriver driver;
     private UserHomePO homePage;
