@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.Random;
@@ -50,5 +51,20 @@ public class BaseTest {
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         return driver;
+    }
+    protected void verifyTrue(boolean condition){
+        try{
+            Assert.assertTrue(condition);
+        }catch (Exception e){
+
+        }
+
+
+    }
+    protected void verifyFalse(boolean condition){
+
+    }
+    protected void verifyEquals(Object actual, Object expected){
+
     }
 }
