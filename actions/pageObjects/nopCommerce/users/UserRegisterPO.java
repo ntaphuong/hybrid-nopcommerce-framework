@@ -86,4 +86,9 @@ public class UserRegisterPO extends BasePage {
         waitForElementVisible(driver, UserRegisterPageUI.CONTINUE_LINK);
         clickToElement(driver, UserRegisterPageUI.CONTINUE_LINK);
     }
+
+    public String getRegisterPageTitle() {
+        waitForElementVisible(driver, UserRegisterPageUI.REGISTER_PAGE_TITLE);
+        return getElementText(driver, UserRegisterPageUI.REGISTER_PAGE_TITLE);
+    }
 }

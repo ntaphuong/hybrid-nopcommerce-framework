@@ -53,17 +53,15 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         return driver;
     }
-    protected void assertTrue(boolean condition){
 
-    }
-    private boolean verifyTrue(boolean condition){
+    protected boolean verifyTrue(boolean condition){
         boolean status = true;
         try {
             Assert.assertTrue(condition);
         } catch (Throwable e) {
             status = false;
 
-           // VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
         }
         return status;
@@ -74,7 +72,7 @@ public class BaseTest {
             Assert.assertFalse(condition);
         } catch (Throwable e) {
             status = false;
-          // VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+           VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
         }
         return status;
@@ -85,7 +83,7 @@ public class BaseTest {
             Assert.assertEquals(actual, expected);
         } catch (Throwable e) {
             status = false;
-            //VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
         }
         return status;

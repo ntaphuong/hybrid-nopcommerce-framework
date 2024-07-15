@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="NopCommerce Automation Testing">
+    <listeners>
+        <listener class-name="commons.MethodListener"></listener>
+    </listeners>
     <parameter name="userUrl" value="https://demo.nopcommerce.com/"/>
     <parameter name="adminUrl" value="https://admin-demo.nopcommerce.com/"/>
     <test name="Run on Firefox browser">
@@ -10,7 +13,7 @@
 <!--            <class name="com.nopcommerce.users.Level_02_BasePage_II_StaticMethod" />-->
 <!--            <class name="com.nopcommerce.users.Level_02_BasePage_III_Inheritance" />-->
 <!--            <class name="com.nopcommerce.users.Level_04_Multiple_Browser"/>-->
-            <class name="com.nopcommerce.users.Level_10_Dynamic_Locator"/>
+            <class name="com.nopcommerce.users.Level_13_Verify"/>
         </classes>
     </test>
 </suite>

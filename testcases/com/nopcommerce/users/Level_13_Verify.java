@@ -10,7 +10,7 @@ import pageObjects.nopCommerce.PageGenerator;
 import pageObjects.nopCommerce.users.*;
 
 
-public class Level_13_Assert_Verify extends BaseTest {
+public class Level_13_Verify extends BaseTest {
     // Declare variables
     private WebDriver driver;
     private UserHomePO homePage;
@@ -39,14 +39,11 @@ public class Level_13_Assert_Verify extends BaseTest {
     }
     @Test
     public void User_01_Register(){
-//        //Action 1
-//        homePage.clickToRegisterLink();
-//        // Từ Home Page qua Register Page
-//        registerPage = new RegisterPageObject(driver);
         registerPage = homePage.clickToRegisterLink();
+        // Assert 01  => FALSE
+        verifyEquals(registerPage.getRegisterPageTitle(), "REGISTER");
 
         registerPage.clickToMaleRadio();
-
         registerPage.EnterToFirstNameTexBox(firstName);
         registerPage.EnterToLastNameTextBox(lastName);
         registerPage.selectDayDropdown(day);
@@ -58,7 +55,7 @@ public class Level_13_Assert_Verify extends BaseTest {
         registerPage.enterToConfirmPasswordTextbox(password);
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
+        verifyEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed....");
 
     }
     @Test
@@ -74,7 +71,7 @@ public class Level_13_Assert_Verify extends BaseTest {
         // Từ Login Page qua Home page
         homePage = loginPage.clickToLoginButton();
 
-        Assert.assertTrue(homePage.isMyAccountLinkDisplay());
+        verifyTrue(homePage.isMyAccountLinkDisplay());
 
 
     }
@@ -82,17 +79,17 @@ public class Level_13_Assert_Verify extends BaseTest {
     public void User_03_MyAccount(){
         // Từ Home Page qua Customer Info Page
         customerInfoPage = homePage.clickToMyAccountLink();
-        Assert.assertTrue(customerInfoPage.isGenderMaleSelected());
+        verifyTrue(customerInfoPage.isGenderMaleSelected());
 
-        Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(),firstName);
-        Assert.assertEquals(customerInfoPage.getLastNameTextboxValue(),lastName);
-        Assert.assertEquals(customerInfoPage.getDayDropdownSelectedValue(),day);
-        Assert.assertEquals(customerInfoPage.getMonthDropdownSelectedValue(),month);
-        Assert.assertEquals(customerInfoPage.getYearDropdownSelectedValue(),year);
-        Assert.assertEquals(customerInfoPage.getEmailTextBoxValue(),emailAddress);
-        Assert.assertEquals(customerInfoPage.getCompanyTextBoxValue(),companyName);
+        verifyEquals(customerInfoPage.getFirstNameTextboxValue(),firstName);
+        verifyEquals(customerInfoPage.getLastNameTextboxValue(),lastName);
+        verifyEquals(customerInfoPage.getDayDropdownSelectedValue(),day);
+        verifyEquals(customerInfoPage.getMonthDropdownSelectedValue(),month);
+        verifyEquals(customerInfoPage.getYearDropdownSelectedValue(),year);
+        verifyEquals(customerInfoPage.getEmailTextBoxValue(),emailAddress);
+        verifyEquals(customerInfoPage.getCompanyTextBoxValue(),companyName);
     }
-    @Test
+   // @Test
     public void User_04_Dynamic_Page(){
         // Customer Info -> Address
         addressPage= (UserAddressPO) customerInfoPage.openSidebarLinkByPageName("Addresses");
@@ -113,7 +110,7 @@ public class Level_13_Assert_Verify extends BaseTest {
 
         addressPage = (UserAddressPO) rewardPointPage.openSidebarLinkByPageName("Addresses");
     }
-    @Test
+   // @Test
     public void User_05_Dynamic_Page(){
 
         // Address -> Reward Point
