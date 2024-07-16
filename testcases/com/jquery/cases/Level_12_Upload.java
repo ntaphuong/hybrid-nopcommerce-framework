@@ -15,6 +15,11 @@ public class Level_12_Upload extends BaseTest {
     private WebDriver driver;
     private HomePO homePage;
     private  String dev, qa;
+
+//    public Level_12_Upload() {
+//        super(log);
+//    }
+
     @Parameters({"browser","url"})
     @BeforeClass
     public void beforeClass(String browserName, String url){

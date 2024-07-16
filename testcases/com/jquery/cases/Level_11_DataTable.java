@@ -14,6 +14,11 @@ import pageObjects.jquery.PageGenerator;
 public class Level_11_DataTable extends BaseTest {
     private WebDriver driver;
     private HomePO homePage;
+
+//    public Level_11_DataTable() {
+//        super(log);
+//    }
+
     @Parameters({"browser","url"})
     @BeforeClass
     public void beforeClass(String browserName, String url){

@@ -13,7 +13,7 @@
 <!--            <class name="com.nopcommerce.users.Level_02_BasePage_II_StaticMethod" />-->
 <!--            <class name="com.nopcommerce.users.Level_02_BasePage_III_Inheritance" />-->
 <!--            <class name="com.nopcommerce.users.Level_04_Multiple_Browser"/>-->
-            <class name="com.nopcommerce.users.Level_13_Verify"/>
+            <class name="com.nopcommerce.users.Level_14_Log4j"/>
         </classes>
     </test>
 </suite>

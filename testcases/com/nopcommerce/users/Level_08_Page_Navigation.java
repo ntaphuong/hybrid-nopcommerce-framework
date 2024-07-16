@@ -21,6 +21,8 @@ public class Level_08_Page_Navigation extends BaseTest {
     private UserRewardPointPO rewardPointPage;
     private UserOrderPO orderPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
+
+
     @Parameters("browser")
     // pre condition
     @BeforeClass

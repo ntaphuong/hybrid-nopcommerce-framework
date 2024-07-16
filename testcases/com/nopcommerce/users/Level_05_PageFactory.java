@@ -19,6 +19,11 @@ public class Level_05_PageFactory extends BaseTest {
     private LoginPageFactory loginPage;
     private CustomerInfoPageFactory customerInfoPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
+
+   // public Level_05_PageFactory() {
+//        super(log);
+//    }
+
     @Parameters("browser")
     // pre condition
     @BeforeClass

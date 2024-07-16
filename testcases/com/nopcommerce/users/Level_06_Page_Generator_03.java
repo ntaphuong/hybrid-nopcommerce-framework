@@ -20,6 +20,9 @@ public class Level_06_Page_Generator_03 extends BaseTest {
     private UserLoginPageObject loginPage;
     private UserCustomerInfoPO customerInfoPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
+
+
+
     @Parameters("browser")
     // pre condition
     @BeforeClass

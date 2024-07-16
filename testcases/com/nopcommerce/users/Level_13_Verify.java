@@ -1,7 +1,6 @@
 package com.nopcommerce.users;
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -21,6 +20,7 @@ public class Level_13_Verify extends BaseTest {
     private UserRewardPointPO rewardPointPage;
     private UserOrderPO orderPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
+
     @Parameters("browser")
     // pre condition
     @BeforeClass

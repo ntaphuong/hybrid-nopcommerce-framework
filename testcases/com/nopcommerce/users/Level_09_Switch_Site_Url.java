@@ -25,6 +25,9 @@ public class Level_09_Switch_Site_Url extends BaseTest {
     private UserCustomerInfoPO userCustomerInfoPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
     private String adminEmailAddress, adminPassword, userUrlValue, adminUrlValue;
+
+
+
     //@Parameters("browser")
     @Parameters({"browser","userUrl","adminUrl"})
     // pre condition

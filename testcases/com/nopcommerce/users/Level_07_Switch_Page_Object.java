@@ -22,6 +22,8 @@ public class Level_07_Switch_Page_Object extends BaseTest {
     private UserOrderPO orderPage;
 
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
+
+
     @Parameters("browser")
     // pre condition
     @BeforeClass

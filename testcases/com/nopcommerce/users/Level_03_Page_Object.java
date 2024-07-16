@@ -22,6 +22,10 @@ public class Level_03_Page_Object extends BaseTest {
     private UserCustomerInfoPO customerInfoPage;
     private  String firstName, lastName, day, month, year, emailAddress, companyName, password;
 
+//    public Level_03_Page_Object() {
+//        super(log);
+//    }
+
     // pre condition
     @BeforeClass
     public void beforeClass(){
