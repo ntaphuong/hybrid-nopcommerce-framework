@@ -1,7 +1,10 @@
 package commons;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+// Log4j1.9
+//import org.apache.commons.logging.Log;
+//import org.apache.commons.logging.LogFactory;
+//Loj4j2.3.1
+import org.apache.logging.log4j.LogManager;
+import  org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,11 +17,11 @@ import java.util.Random;
 
 public class BaseTest {
     protected WebDriver driver;
-    protected final Log log;
+    protected final Logger log;
 
     // Khởi tạo log
     public BaseTest() {
-        log = LogFactory.getLog(getClass());
+        log = LogManager.getLogger(getClass());
     }
 
     protected int generateRandomNumber(){
