@@ -15,6 +15,6 @@
     <orderEntry type="library" name="selenium-server-4.19.1" level="project" />
     <orderEntry type="library" name="libraries" level="project" />
     <orderEntry type="library" name="selenium-server-4.19.1" level="project" />
-    <orderEntry type="library" name="log4j1" level="project" />
+    <orderEntry type="library" name="log4j-api-2.23.1" level="project" />
   </component>
 </module>
