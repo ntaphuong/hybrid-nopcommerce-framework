@@ -42,6 +42,8 @@ public class Level_14_Log4j extends BaseTest {
         companyName = "PhuongNTACompany";
         password = "123456";
     }
+    // LƯU Ý: Trên IntelliJIDEA nếu không hiển thị log thì cần config cho source folder resources là Resources Root
+
     @Test
     public void User_01_Register(){
         log.info("User_01_Register - STEP 01: Open Register Page");
