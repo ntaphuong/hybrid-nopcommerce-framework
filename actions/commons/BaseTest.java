@@ -105,4 +105,8 @@ public class BaseTest {
         }
         return status;
     }
+
+    public WebDriver getDriver() {
+        return  driver;
+    }
 }

@@ -40,3 +40,71 @@
 [28-07-2024 22:59:46.530 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 12: Click to Register Button
 [28-07-2024 22:59:47.270 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 13: Verify success message is displayed
 [28-07-2024 22:59:47.317 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 14: Click to Logout Link
+[29-07-2024 23:42:49.094 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 01: Open Register Page
+[29-07-2024 23:42:49.789 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 02: Click to Male Radio Button
+[29-07-2024 23:42:50.093 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 03: Enter to Firstname textbox with valuePhượng
+[29-07-2024 23:42:50.231 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 04: Enter to lastname textbox with valueNguyễn
+[29-07-2024 23:42:50.335 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 05: select Day dropdown with value19
+[29-07-2024 23:42:50.729 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 06: Select Month dropdown with valueJanuary
+[29-07-2024 23:42:50.999 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 07: Select Year dropdown with value1989
+[29-07-2024 23:42:51.323 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 08: Enter to Email textbox with valuephuong96150@gmail.com
+[29-07-2024 23:42:51.363 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 09: Enter to Company textbox with valuePhuongNTACompany
+[29-07-2024 23:42:51.413 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 10: Enter to Password textbox with value123456
+[29-07-2024 23:42:51.454 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 11: Enter to Confirm Password textbox with value123456
+[29-07-2024 23:42:51.499 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 12: Click to Register Button
+[29-07-2024 23:42:52.244 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 13: Verify success message is displayed
+[29-07-2024 23:42:52.350 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 14: Click to Logout Link
+[29-07-2024 23:42:57.572 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 01: Open Register Page
+[29-07-2024 23:42:58.738 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 02: Click to Male Radio Button
+[29-07-2024 23:42:58.856 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 03: Enter to Firstname textbox with valuePhượng
+[29-07-2024 23:42:58.998 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 04: Enter to lastname textbox with valueNguyễn
+[29-07-2024 23:42:59.101 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 05: select Day dropdown with value19
+[29-07-2024 23:42:59.188 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 06: Select Month dropdown with valueJanuary
+[29-07-2024 23:42:59.269 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 07: Select Year dropdown with value1989
+[29-07-2024 23:42:59.346 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 08: Enter to Email textbox with valuephuong8975@gmail.com
+[29-07-2024 23:42:59.454 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 09: Enter to Company textbox with valuePhuongNTACompany
+[29-07-2024 23:42:59.561 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 10: Enter to Password textbox with value123456
+[29-07-2024 23:42:59.662 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 11: Enter to Confirm Password textbox with value123456
+[29-07-2024 23:42:59.753 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 12: Click to Register Button
+[29-07-2024 23:43:00.533 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 13: Verify success message is displayed
+[29-07-2024 23:43:00.585 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 14: Click to Logout Link
+[29-07-2024 23:43:04.723 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 01: Open Register Page
+[29-07-2024 23:43:06.145 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 02: Click to Male Radio Button
+[29-07-2024 23:43:06.262 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 03: Enter to Firstname textbox with valuePhượng
+[29-07-2024 23:43:06.396 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 04: Enter to lastname textbox with valueNguyễn
+[29-07-2024 23:43:06.503 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 05: select Day dropdown with value19
+[29-07-2024 23:43:06.603 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 06: Select Month dropdown with valueJanuary
+[29-07-2024 23:43:06.706 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 07: Select Year dropdown with value1989
+[29-07-2024 23:43:06.783 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 08: Enter to Email textbox with valuephuong43179@gmail.com
+[29-07-2024 23:43:06.884 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 09: Enter to Company textbox with valuePhuongNTACompany
+[29-07-2024 23:43:07.007 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 10: Enter to Password textbox with value123456
+[29-07-2024 23:43:07.118 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 11: Enter to Confirm Password textbox with value123456
+[29-07-2024 23:43:07.218 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 12: Click to Register Button
+[29-07-2024 23:43:07.989 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 13: Verify success message is displayed
+[29-07-2024 23:43:08.035 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 14: Click to Logout Link
+[30-07-2024 00:19:54.880 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 01: Open Register Page
+[30-07-2024 00:19:56.009 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 02: Click to Male Radio Button
+[30-07-2024 00:19:56.334 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 03: Enter to Firstname textbox with valuePhượng
+[30-07-2024 00:19:56.431 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 04: Enter to lastname textbox with valueNguyễn
+[30-07-2024 00:19:56.472 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 05: select Day dropdown with value19
+[30-07-2024 00:19:56.741 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 06: Select Month dropdown with valueJanuary
+[30-07-2024 00:19:57.032 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 07: Select Year dropdown with value1989
+[30-07-2024 00:19:57.279 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 08: Enter to Email textbox with valuephuong45844@gmail.com
+[30-07-2024 00:19:57.322 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 09: Enter to Company textbox with valuePhuongNTACompany
+[30-07-2024 00:19:57.373 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 10: Enter to Password textbox with value123456
+[30-07-2024 00:19:57.421 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 11: Enter to Confirm Password textbox with value123456
+[30-07-2024 00:19:57.471 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 12: Click to Register Button
+[30-07-2024 00:19:58.274 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 13: Verify success message is displayed
+[30-07-2024 00:20:53.519 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 01: Open Register Page
+[30-07-2024 00:20:54.690 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 02: Click to Male Radio Button
+[30-07-2024 00:20:54.944 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 03: Enter to Firstname textbox with valuePhượng
+[30-07-2024 00:20:55.081 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 04: Enter to lastname textbox with valueNguyễn
+[30-07-2024 00:20:55.138 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 05: select Day dropdown with value19
+[30-07-2024 00:20:55.412 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 06: Select Month dropdown with valueJanuary
+[30-07-2024 00:20:55.691 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 07: Select Year dropdown with value1989
+[30-07-2024 00:20:55.954 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 08: Enter to Email textbox with valuephuong7386@gmail.com
+[30-07-2024 00:20:56.019 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 09: Enter to Company textbox with valuePhuongNTACompany
+[30-07-2024 00:20:56.074 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 10: Enter to Password textbox with value123456
+[30-07-2024 00:20:56.121 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 11: Enter to Confirm Password textbox with value123456
+[30-07-2024 00:20:56.167 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 12: Click to Register Button
+[30-07-2024 00:20:56.939 INFO com.nopcommerce.users.Level_14_Log4j] - User_01_Register - STEP 13: Verify success message is displayed

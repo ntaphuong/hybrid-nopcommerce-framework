@@ -69,7 +69,7 @@ public class Level_09_Switch_Site_Url extends BaseTest {
     }
     @Test
     public void Role_01_User_Site_To_Admin_Site(){
-        userLoginPage = userHomePage.OpenLoginPage();
+        userLoginPage = userHomePage.openLoginPage();
         // Từ Login Page qua Home page
         userHomePage = userLoginPage.loginToSystem(emailAddress,password);
         Assert.assertTrue(userHomePage.isMyAccountLinkDisplay());

@@ -34,10 +34,11 @@ public class UserHomePO extends BasePage {
         clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
         return PageGenerator.getUserCustomerPage(driver);
     }
-    public UserLoginPageObject OpenLoginPage(){
+    public UserLoginPageObject openLoginPage(){
         waitForElementClickable(driver, UserRegisterPageUI.LOGIN_LINK);
         clickToElement(driver, UserRegisterPageUI.LOGIN_LINK);
         return PageGenerator.getUserLoginPage(driver);
     }
+
 
 }
