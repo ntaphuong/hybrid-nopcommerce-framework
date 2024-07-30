@@ -83,11 +83,17 @@ public class Level_14_Log4j extends BaseTest {
         registerPage.clickToRegisterButton();
 
         log.info("User_01_Register - STEP 13: Verify success message is displayed");
-        Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
+        Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed...");
 
         log.info("User_01_Register - STEP 14: Click to Logout Link");
         homePage = registerPage.clickToLogoutLink();
 
+    }
+    @Test
+    public void User_02_Login(){
+        loginPage = homePage.openLoginPage();
+        homePage = loginPage.loginToSystem(emailAddress,password);
+        Assert.assertTrue(homePage.isMyAccountLinkDisplay());
     }
 
     @AfterClass
