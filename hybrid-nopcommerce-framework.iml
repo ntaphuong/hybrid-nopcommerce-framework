@@ -20,6 +20,6 @@
     <orderEntry type="library" name="reportNG" level="project" />
     <orderEntry type="library" name="reportNG" level="project" />
     <orderEntry type="library" name="extent2" level="project" />
-    <orderEntry type="library" name="extent2" level="project" />
+    <orderEntry type="library" name="extentreports-5.1.2" level="project" />
   </component>
 </module>
