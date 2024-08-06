@@ -46,7 +46,7 @@ public class Level_03_Page_Object extends BaseTest {
     @Test
     public void User_01_Register(){
         //Action 1
-        homePage.clickToRegisterLink();
+        homePage.openRegisterPage();
         // Từ Home Page qua Register Page
         registerPage = new UserRegisterPO(driver);
 

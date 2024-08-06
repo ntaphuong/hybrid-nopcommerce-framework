@@ -1,4 +1,8 @@
 package com.nopcommerce.users;
+
+//import com.relevantcodes.extentreports.Status;
+
+import com.aventstack.extentreports.Status;
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -8,9 +12,13 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.nopCommerce.PageGenerator;
 import pageObjects.nopCommerce.users.*;
+import reportConfigs.ExtentManager;
+
+import java.lang.reflect.Method;
 
 
-public class Level_14_Log4j extends BaseTest {
+public class Level_15_ExtentReport extends BaseTest {
+    String browserName;
     // Declare variables
     private WebDriver driver;
     private UserHomePO homePage;
@@ -30,6 +38,7 @@ public class Level_14_Log4j extends BaseTest {
     // pre condition
     @BeforeClass
     public void beforeClass(String browserName){
+        this.browserName = browserName;
         driver = getBrowserDriver(browserName);
         // Mở URL lên, qua HomePage
         homePage = PageGenerator.getUserHomePage(driver);
@@ -45,54 +54,64 @@ public class Level_14_Log4j extends BaseTest {
     // LƯU Ý: Trên IntelliJIDEA nếu không hiển thị log thì cần config cho source folder resources là Resources Root
 
     @Test
-    public void User_01_Register(){
-        log.info("User_01_Register - STEP 01: Open Register Page");
+    public void User_01_Register(Method method){
+        ExtentManager.startTest(method.getName() + "_"+ this.browserName.toUpperCase(),"User_01_Register");
+        ExtentManager.getTest().log(Status.INFO,"NewCustomer - Step 01: Open 'New Customer' page");
+
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 01: Open Register Page");
         registerPage = homePage.openRegisterPage();
 
-        log.info("User_01_Register - STEP 02: Click to Male Radio Button");
+        ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 02: Click to Male Radio Button");
         registerPage.clickToMaleRadio();
 
-        log.info("User_01_Register - STEP 03: Enter to Firstname textbox with value"+firstName);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 03: Enter to Firstname textbox with value"+firstName);
         registerPage.EnterToFirstNameTexBox(firstName);
 
-        log.info("User_01_Register - STEP 04: Enter to lastname textbox with value"+lastName);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 04: Enter to lastname textbox with value"+lastName);
         registerPage.EnterToLastNameTextBox(lastName);
 
-        log.info("User_01_Register - STEP 05: select Day dropdown with value"+day);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 05: select Day dropdown with value"+day);
         registerPage.selectDayDropdown(day);
 
-        log.info("User_01_Register - STEP 06: Select Month dropdown with value"+month);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 06: Select Month dropdown with value"+month);
         registerPage.selectMonthDropdown(month);
 
-        log.info("User_01_Register - STEP 07: Select Year dropdown with value"+year);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 07: Select Year dropdown with value"+year);
         registerPage.selectYearDropdown(year);
 
-        log.info("User_01_Register - STEP 08: Enter to Email textbox with value"+ emailAddress);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 08: Enter to Email textbox with value"+ emailAddress);
         registerPage.enterToEmailTextbox(emailAddress);
 
-        log.info("User_01_Register - STEP 09: Enter to Company textbox with value"+ companyName);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 09: Enter to Company textbox with value"+ companyName);
         registerPage.enterToCompanyTextbox(companyName);
 
-        log.info("User_01_Register - STEP 10: Enter to Password textbox with value"+ password);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 10: Enter to Password textbox with value"+ password);
         registerPage.enterToPasswordTextbox(password);
 
-        log.info("User_01_Register - STEP 11: Enter to Confirm Password textbox with value"+ password);
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 11: Enter to Confirm Password textbox with value"+ password);
         registerPage.enterToConfirmPasswordTextbox(password);
 
-        log.info("User_01_Register - STEP 12: Click to Register Button");
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 12: Click to Register Button");
         registerPage.clickToRegisterButton();
 
-        log.info("User_01_Register - STEP 13: Verify success message is displayed");
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 13: Verify success message is displayed");
         Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed...");
 
-        log.info("User_01_Register - STEP 14: Click to Logout Link");
+         ExtentManager.getTest().log(Status.INFO,"User_01_Register - STEP 14: Click to Logout Link");
         homePage = registerPage.clickToLogoutLink();
 
     }
     @Test
-    public void User_02_Login(){
+    public void User_02_Login(Method method){
+
+        ExtentManager.startTest(method.getName()+ "_"+ this.browserName.toUpperCase(),"User_02_Login");
+
+        homePage = registerPage.clickToLogoutLink();
+
         loginPage = homePage.openLoginPage();
+
         homePage = loginPage.loginToSystem(emailAddress,password);
+
         Assert.assertTrue(homePage.isMyAccountLinkDisplay());
     }
 

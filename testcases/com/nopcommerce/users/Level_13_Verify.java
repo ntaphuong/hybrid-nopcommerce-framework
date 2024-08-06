@@ -39,7 +39,7 @@ public class Level_13_Verify extends BaseTest {
     }
     @Test
     public void User_01_Register(){
-        registerPage = homePage.clickToRegisterLink();
+        registerPage = homePage.openRegisterPage();
         // Assert 01  => FALSE
         verifyEquals(registerPage.getRegisterPageTitle(), "REGISTER");
 

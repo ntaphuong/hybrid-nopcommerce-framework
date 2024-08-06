@@ -46,7 +46,7 @@ public class Level_07_Switch_Page_Object extends BaseTest {
 //        homePage.clickToRegisterLink();
 //        // Từ Home Page qua Register Page
 //        registerPage = new RegisterPageObject(driver);
-        registerPage = homePage.clickToRegisterLink();
+        registerPage = homePage.openRegisterPage();
 
         registerPage.clickToMaleRadio();
 

@@ -45,7 +45,7 @@ public class Level_10_Dynamic_Locator extends BaseTest {
 //        homePage.clickToRegisterLink();
 //        // Từ Home Page qua Register Page
 //        registerPage = new RegisterPageObject(driver);
-        registerPage = homePage.clickToRegisterLink();
+        registerPage = homePage.openRegisterPage();
 
         registerPage.clickToMaleRadio();
 

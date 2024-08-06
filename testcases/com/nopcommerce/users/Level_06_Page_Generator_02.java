@@ -43,7 +43,7 @@ public class Level_06_Page_Generator_02 extends BaseTest {
 //        homePage.clickToRegisterLink();
 //        // Từ Home Page qua Register Page
 //        registerPage = new RegisterPageObject(driver);
-        registerPage = homePage.clickToRegisterLink();
+        registerPage = homePage.openRegisterPage();
 
         registerPage.clickToMaleRadio();
 

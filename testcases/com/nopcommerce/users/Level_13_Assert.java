@@ -40,7 +40,7 @@ public class Level_13_Assert extends BaseTest {
     }
     @Test
     public void User_01_Register(){
-        registerPage = homePage.clickToRegisterLink();
+        registerPage = homePage.openRegisterPage();
         // Assert 01  => FALSE
         Assert.assertEquals(registerPage.getRegisterPageTitle(), "REGISTER");
 

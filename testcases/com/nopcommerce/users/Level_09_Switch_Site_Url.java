@@ -51,7 +51,7 @@ public class Level_09_Switch_Site_Url extends BaseTest {
         adminPassword = "12345678";
 
         // Pre-Condition
-        userRegisterPage = userHomePage.clickToRegisterLink();
+        userRegisterPage = userHomePage.openRegisterPage();
         userRegisterPage.clickToMaleRadio();
         userRegisterPage.EnterToFirstNameTexBox(firstName);
         userRegisterPage.EnterToLastNameTextBox(lastName);

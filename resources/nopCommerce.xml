@@ -3,7 +3,8 @@
 <suite name="NopCommerce Automation Testing">
     <listeners>
         <listener class-name="commons.MethodListener"/>
-        <listener class-name="reportConfigs.ExtentListener"/>
+<!--        <listener class-name="reportConfigs.ExtentListener"/>-->
+        <listener class-name="reportConfigs.AllureListener"/>
 
     </listeners>
     <parameter name="userUrl" value="https://demo.nopcommerce.com/"/>
@@ -11,19 +12,19 @@
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.nopcommerce.users.Level_15_ExtentReport2"/>
+            <class name="com.nopcommerce.users.Level_16_AllureReport"/>
         </classes>
     </test>
 <!--    <test name="Run on Chrome browser">-->
 <!--        <parameter name="browser" value="chrome"/>-->
 <!--        <classes>-->
-<!--            <class name="com.nopcommerce.users.Level_15_ExtentReport2"/>-->
+<!--            <class name="com.nopcommerce.users.Level_15_ExtentReport"/>-->
 <!--        </classes>-->
 <!--    </test>-->
 <!--    <test name="Run on Edge browser">-->
 <!--        <parameter name="browser" value="edge"/>-->
 <!--        <classes>-->
-<!--            <class name="com.nopcommerce.users.Level_15_ExtentReport2"/>-->
+<!--            <class name="com.nopcommerce.users.Level_15_ExtentReport"/>-->
 <!--        </classes>-->
 <!--    </test>-->
 </suite>
