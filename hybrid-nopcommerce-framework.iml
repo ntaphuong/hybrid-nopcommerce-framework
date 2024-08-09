@@ -22,5 +22,6 @@
     <orderEntry type="library" name="extentreports-5.1.2" level="project" />
     <orderEntry type="library" name="extentreports-5.1.2" level="project" />
     <orderEntry type="library" name="allure-java-commons-2.29.0" level="project" />
+    <orderEntry type="library" name="allure-java-commons-2.29.0" level="project" />
   </component>
 </module>
